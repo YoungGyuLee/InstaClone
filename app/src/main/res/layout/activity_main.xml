@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_above="@+id/main_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/main_tab"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+
+        <LinearLayout
+            android:background="#faf9fa"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/btn_main_home"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/tab_home"/>
+            <ImageView
+                android:id="@+id/btn_main_search"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/tab_search"/>
+            <ImageView
+                android:id="@+id/btn_main_add"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/main_add_off"/>
+
+            <ImageView
+                android:id="@+id/btn_main_news"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/tab_news"/>
+
+            <ImageView
+                android:id="@+id/btn_main_my"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:src="@drawable/tab_my"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
