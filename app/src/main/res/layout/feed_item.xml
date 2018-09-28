@@ -5,4 +5,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/image_feed_profile"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/pic1"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pikachu"
+                android:id="@+id/tv_feed_name"
+                android:textSize="12sp"
+                android:layout_toRightOf="@+id/image_feed_profile"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/points"
+                android:id="@+id/image_feed_set"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                />
+
+        </RelativeLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_feed_images"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+
 </LinearLayout>
