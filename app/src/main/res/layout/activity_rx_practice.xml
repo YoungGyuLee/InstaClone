@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RxPracticeActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:text="up"
+        android:textAllCaps="false"
+        android:id="@+id/btn_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:text="11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text="down"
+        android:textAllCaps="false"        android:id="@+id/btn_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/tv_rx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Rx"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

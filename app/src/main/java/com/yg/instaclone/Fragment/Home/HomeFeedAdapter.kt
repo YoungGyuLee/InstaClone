@@ -10,12 +10,12 @@ import com.bumptech.glide.RequestManager
 import com.yg.instaclone.R
 
 class HomeFeedAdapter(var feeds : ArrayList<HomeFeedVO>, var fm : FragmentManager, var requestManager : RequestManager) : RecyclerView.Adapter<HomeFeedViewHolder>() {
-
+    //리사이클러뷰 어댑터.
     lateinit var imageAdpater : ArrayList<HomeFeedPageAdapter>
-    lateinit var viewPageSate : HashMap<Int, Int>
-
+    var viewPageSate : HashMap<Int, Int> = HashMap()
+    //리사이클러뷰에 뷰페이저 달기 위해 넣은 거.
     init {
-        viewPageSate = HashMap()
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeFeedViewHolder {
