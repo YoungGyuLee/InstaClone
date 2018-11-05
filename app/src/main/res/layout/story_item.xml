@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="84dp">
     <RelativeLayout
         android:layout_width="54dp"
@@ -13,12 +14,14 @@
             android:layout_height="54dp">
 
             <ImageView
+                android:id="@+id/image_story_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/pic1"
                 />
 
             <ImageView
+                android:id="@+id/image_story_add"
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:src="#5395e9"
@@ -29,6 +32,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_story_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="pikachu"

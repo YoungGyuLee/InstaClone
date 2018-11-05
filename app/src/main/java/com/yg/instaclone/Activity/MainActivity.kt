@@ -21,11 +21,7 @@ class MainActivity : AppCompatActivity(){
         //startActivity(Intent(this, RxPracticeActivity::class.java))
         initPresenter()
         mainActPresenter.initView()
-
-        btn_main_home.clicks().subscribe { mainActPresenter.replaceFragment(HomeFragment()) }
-        btn_main_my.clicks().subscribe { mainActPresenter.replaceFragment(MyFragment()) }
-        btn_main_news.clicks().subscribe { mainActPresenter.replaceFragment(NewsFragment()) }
-        btn_main_search.clicks().subscribe { mainActPresenter.replaceFragment(SearchFragment()) }
+        setOnBinding()
     }
 
     fun initPresenter(){
@@ -46,6 +42,14 @@ class MainActivity : AppCompatActivity(){
         transaction.replace(R.id.main_frame, fragment)
         transaction.commit()
     }
+
+    fun setOnBinding(){
+        btn_main_home.clicks().subscribe { mainActPresenter.replaceFragment(HomeFragment()) }
+        btn_main_my.clicks().subscribe { mainActPresenter.replaceFragment(MyFragment()) }
+        btn_main_news.clicks().subscribe { mainActPresenter.replaceFragment(NewsFragment()) }
+        btn_main_search.clicks().subscribe { mainActPresenter.replaceFragment(SearchFragment()) }
+    }
+
 
     fun clearSelected(){
         //btn_main_search.isSelected = false

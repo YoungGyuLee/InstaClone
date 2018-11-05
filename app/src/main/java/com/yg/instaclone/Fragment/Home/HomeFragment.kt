@@ -14,7 +14,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
     lateinit var feedsAdapter : HomeFeedAdapter
-    lateinit var requestManager : RequestManager
+    lateinit var storysAdapter : HomeStoryAdapter
+    lateinit var feedsRequestManager : RequestManager
+    lateinit var storysRequestManager : RequestManager
     lateinit var homeFragPresenter: HomeFragPresenter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,10 +36,17 @@ class HomeFragment : Fragment() {
         homeFragPresenter.initView()
     }
 
-    fun onCompleteInit(feeds : ArrayList<HomeFeedVO>){
-        requestManager = Glide.with(this)
-        feedsAdapter = HomeFeedAdapter(feeds, activity!!.supportFragmentManager, requestManager)
+    fun onInitFeeds(feeds : ArrayList<HomeFeedVO>){
+        feedsRequestManager = Glide.with(this)
+        feedsAdapter = HomeFeedAdapter(feeds, activity!!.supportFragmentManager, feedsRequestManager)
         rv_home_feed.layoutManager = LinearLayoutManager(activity)
         rv_home_feed.adapter = feedsAdapter
+    }
+
+    fun onInitStorys(storys : ArrayList<HomeStoryVO>){
+        storysRequestManager = Glide.with(this)
+        storysAdapter = HomeStoryAdapter(storys, storysRequestManager)
+        rv_home_story.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        rv_home_story.adapter = storysAdapter
     }
 }
