@@ -1,4 +1,4 @@
-package com.yg.instaclone.Fragment.Home
+package com.yg.instaclone.fragment.home
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import com.yg.instaclone.Presenter.FragmentPresenter.HomeFragPresenter
 import com.yg.instaclone.R
+import com.yg.instaclone.presenter.fragment.HomeFragPresenter
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {

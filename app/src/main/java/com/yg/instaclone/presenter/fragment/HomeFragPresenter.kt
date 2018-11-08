@@ -1,9 +1,9 @@
-package com.yg.instaclone.Presenter.FragmentPresenter
+package com.yg.instaclone.presenter.fragment
 
-import com.yg.instaclone.Fragment.Home.HomeFeedVO
-import com.yg.instaclone.Fragment.Home.HomeFragment
-import com.yg.instaclone.Fragment.Home.HomeStoryVO
-import com.yg.instaclone.Presenter.BasePresenter
+import com.yg.instaclone.fragment.home.HomeFeedVO
+import com.yg.instaclone.fragment.home.HomeFragment
+import com.yg.instaclone.fragment.home.HomeStoryVO
+import com.yg.instaclone.presenter.BasePresenter
 import com.yg.instaclone.R
 
 class HomeFragPresenter : BasePresenter<HomeFragment>() {

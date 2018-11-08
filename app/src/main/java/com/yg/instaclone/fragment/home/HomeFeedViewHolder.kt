@@ -1,4 +1,4 @@
-package com.yg.instaclone.Fragment.Home
+package com.yg.instaclone.fragment.home
 
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView

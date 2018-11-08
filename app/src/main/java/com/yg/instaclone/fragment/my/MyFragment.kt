@@ -1,4 +1,4 @@
-package com.yg.instaclone.Fragment.Search
+package com.yg.instaclone.fragment.my
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.yg.instaclone.R
 
-class SearchFragment : Fragment() {
+class MyFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fragment_search, container, false)
+        val v = inflater.inflate(R.layout.fragment_my, container, false)
         return v
     }
 }

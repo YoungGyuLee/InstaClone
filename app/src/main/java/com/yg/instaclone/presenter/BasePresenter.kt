@@ -1,4 +1,4 @@
-package com.yg.instaclone.Presenter
+package com.yg.instaclone.presenter
 
 
 

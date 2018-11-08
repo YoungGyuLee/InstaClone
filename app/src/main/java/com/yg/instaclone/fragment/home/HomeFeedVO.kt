@@ -1,4 +1,4 @@
-package com.yg.instaclone.Fragment.Home
+package com.yg.instaclone.fragment.home
 
 data class HomeFeedVO (
         var profile : Int,

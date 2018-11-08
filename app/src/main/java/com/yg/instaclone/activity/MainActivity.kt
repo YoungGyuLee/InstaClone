@@ -1,20 +1,21 @@
-package com.yg.instaclone.Activity
+package com.yg.instaclone.activity
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.jakewharton.rxbinding3.view.clicks
-import com.yg.instaclone.Fragment.Home.HomeFragment
-import com.yg.instaclone.Fragment.My.MyFragment
-import com.yg.instaclone.Fragment.News.NewsFragment
-import com.yg.instaclone.Fragment.Search.SearchFragment
-import com.yg.instaclone.Presenter.ActivityPresenter.MainActPresenter
+import com.yg.instaclone.fragment.home.HomeFragment
+import com.yg.instaclone.fragment.my.MyFragment
+import com.yg.instaclone.fragment.news.NewsFragment
+import com.yg.instaclone.fragment.search.SearchFragment
+import com.yg.instaclone.presenter.activity.MainActPresenter
 import com.yg.instaclone.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
 
     private lateinit var mainActPresenter : MainActPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity(){
         mainActPresenter = MainActPresenter()
         mainActPresenter.view = this
     }
+
 
     fun addFragment(fragment : Fragment){
         val fm = supportFragmentManager

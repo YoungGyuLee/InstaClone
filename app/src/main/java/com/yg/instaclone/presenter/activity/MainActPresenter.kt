@@ -1,9 +1,9 @@
-package com.yg.instaclone.Presenter.ActivityPresenter
+package com.yg.instaclone.presenter.activity
 
 import android.support.v4.app.Fragment
-import com.yg.instaclone.Activity.MainActivity
-import com.yg.instaclone.Fragment.Home.HomeFragment
-import com.yg.instaclone.Presenter.BasePresenter
+import com.yg.instaclone.activity.MainActivity
+import com.yg.instaclone.fragment.home.HomeFragment
+import com.yg.instaclone.presenter.BasePresenter
 
 class MainActPresenter : BasePresenter<MainActivity>() {
     fun initView(){

@@ -1,4 +1,4 @@
-package com.yg.instaclone.Fragment.Home
+package com.yg.instaclone.fragment.home
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

@@ -1,4 +1,4 @@
-package com.yg.instaclone.Activity
+package com.yg.instaclone.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
