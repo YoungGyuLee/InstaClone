@@ -1,15 +1,16 @@
 package com.yg.instaclone.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.jakewharton.rxbinding3.view.clicks
+import com.yg.instaclone.R
 import com.yg.instaclone.fragment.home.HomeFragment
 import com.yg.instaclone.fragment.my.MyFragment
 import com.yg.instaclone.fragment.news.NewsFragment
 import com.yg.instaclone.fragment.search.SearchFragment
 import com.yg.instaclone.presenter.activity.MainActPresenter
-import com.yg.instaclone.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity(){
     fun setOnBinding(){
         btn_main_home.clicks().subscribe { mainActPresenter.replaceFragment(HomeFragment()) }
         btn_main_my.clicks().subscribe { mainActPresenter.replaceFragment(MyFragment()) }
+        btn_main_add.clicks().subscribe { startActivity(Intent(this, AddActivity::class.java)) }
         btn_main_news.clicks().subscribe { mainActPresenter.replaceFragment(NewsFragment()) }
         btn_main_search.clicks().subscribe { mainActPresenter.replaceFragment(SearchFragment()) }
     }
