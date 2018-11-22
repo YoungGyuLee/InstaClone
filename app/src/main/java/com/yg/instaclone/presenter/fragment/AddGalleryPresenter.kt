@@ -18,4 +18,8 @@ class AddGalleryPresenter : BasePresenter<AddGalleryFragment>(){
         view!!.initGallery(galleryList)
     }
 
+    fun setRepresentImage(image : String){
+        view!!.changeRepresent(image)
+    }
+
 }

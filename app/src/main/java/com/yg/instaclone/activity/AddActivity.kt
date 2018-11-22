@@ -9,9 +9,10 @@ import android.support.design.widget.TabLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
+import android.widget.Toast
 import com.yg.instaclone.R
 import com.yg.instaclone.presenter.activity.AddActPresenter
+import com.yg.instaclone.util.PermissionHelper
 import kotlinx.android.synthetic.main.activity_add.*
 
 //@Suppress("UNCHECKED_CAST")
@@ -29,20 +30,33 @@ class AddActivity : AppCompatActivity() {
 //        val aaa = intent.getSerializableExtra("array") as? ArrayList<Testing>
 //        Log.v("aaa", aaa!![0].name)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //퍼미션 상태 확인
-            Log.v("Add", "Init")
+        initPresenter()
+        addActPresenter.initView()
 
-            if (!hasPermissions(PERMISSIONS)) {
-                //퍼미션 허가 안되어있다면 사용자에게 요청
-                Log.v("Add", "Init pn")
-                requestPermissions(PERMISSIONS, PERMISSIONS_REQUEST_CODE)
-            }else{
-                Log.v("Add", "Init po")
-                initPresenter()
-                addActPresenter.initView()
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            //퍼미션 상태 확인
+//            Log.v("Add", "Init")
+//
+//            if (!hasPermissions(PERMISSIONS)) {
+//                //퍼미션 허가 안되어있다면 사용자에게 요청
+//                Log.v("Add", "Init pn")
+//                requestPermissions(PERMISSIONS, PERMISSIONS_REQUEST_CODE)
+//            }else{
+//                Log.v("Add", "Init po")
+//                initPresenter()
+//                addActPresenter.initView()
+//            }
+//        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!PermissionHelper.hasCameraPermission(this))
+            PermissionHelper.requestCameraPermission(this)
+
+        if (!PermissionHelper.hasReadExternalStoragePermission(this))
+            PermissionHelper.requestReadExternalStoragePermission(this)
+
     }
 
 
@@ -61,6 +75,18 @@ class AddActivity : AppCompatActivity() {
         vp_add_main.adapter = tabAdapter
         vp_add_main.currentItem = 0
         vp_add_main.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_add))
+
+
+        tab_add.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                vp_add_main.currentItem = tab!!.position
+            }
+        })
 
 
     }
@@ -84,16 +110,37 @@ class AddActivity : AppCompatActivity() {
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//
+//        when (requestCode) {
+//            PERMISSIONS_REQUEST_CODE -> if (grantResults.isEmpty()) {
+//                val cameraPermissionAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED
+//
+//                if (!cameraPermissionAccepted)
+//                    showDialogForPermission("앱을 실행하려면 퍼미션을 허가하셔야합니다.")
+//            }
+//        }
 
-        when (requestCode) {
-            PERMISSIONS_REQUEST_CODE -> if (grantResults.isEmpty()) {
-                val cameraPermissionAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED
-
-                if (!cameraPermissionAccepted)
-                    showDialogForPermission("앱을 실행하려면 퍼미션을 허가하셔야합니다.")
+        if (!PermissionHelper.hasCameraPermission(this)) {
+            Toast.makeText(this, "Camera permission is needed to run this application", Toast.LENGTH_LONG)
+                    .show()
+            if (!PermissionHelper.shouldShowRequestPermissionRationaleCamera(this)) {
+                // Permission denied with checking "Do not ask again".
+                PermissionHelper.launchPermissionSettings(this)
             }
+            finish()
         }
+
+        if (!PermissionHelper.hasReadExternalStoragePermission(this)) {
+            Toast.makeText(this, "Read External Storage permission is needed to run this application", Toast.LENGTH_LONG)
+                    .show()
+            if (!PermissionHelper.shouldShowRequestPermissionRationaleReadExternalStorage(this)) {
+                // Permission denied with checking "Do not ask again".
+                PermissionHelper.launchPermissionSettings(this)
+            }
+            finish()
+        }
+
     }
 
     @TargetApi(Build.VERSION_CODES.M)
